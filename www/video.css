@@ -37,7 +37,7 @@ article {
 }
 
 article h2 {
-	font-size: 2rem;
+	font-size: 2em;
 	display: inline;
 	margin-right: 6px;
 }
@@ -57,14 +57,15 @@ section {
 }
 
 ol {
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.1em;
   padding: 0;
-  font-size: 0.5rem;
+  font-size: 0.5em;
   list-style-type: none;
 }
 
 ol > ol {
-  padding-left: 0.5rem;
+  font-size: 1em;
+  padding-left: 1em;
   list-style-type: circle;
 }
 
@@ -74,4 +75,10 @@ video {
 
 footer {
   padding: 1rem;
+}
+
+@media only screen and (max-width: 549px){
+  body {
+    font-size: 2em;
+  }
 }
