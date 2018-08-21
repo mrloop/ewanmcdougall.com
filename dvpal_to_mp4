@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# https://trac.ffmpeg.org/wiki/Encode/H.264
+
+# `-s 768x576` square pixels
+# `-vf yadif` deinterlace
+
+ffmpeg \
+  -i $1 -vf yadif \
+  -s 768x576 \
+  -c:v libx264 -c:a aac \
+  -pix_fmt yuv420p -movflags +faststart \
+  -preset slower -strict -2 \
+  $2.mp4

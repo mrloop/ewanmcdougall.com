@@ -1,0 +1,77 @@
+
+@font-face {
+	font-family: 'fanwood';
+	src: url('fonts/fanwood/fanwood_test-webfont.eot');
+	src: url('fonts/fanwood/fanwood_test-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/fanwood/fanwood_test-webfont.woff') format('woff'),
+		url('fonts/fanwood/fanwood_test-webfont.ttf') format('truetype'),
+		url('fonts/fanwood/fanwood_test-webfont.svg#ciclefina') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	background: black;
+	font-family: 'fanwood', serif;
+	color: #F0F0F0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  padding: 0;
+  margin: 0;
+  transition: color 0.5s ease;
+}
+
+.fade-down {
+  color: transparent;
+}
+
+article {
+	padding: 2rem 0 2rem 0;
+  min-height: 55vh;
+	max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+article h2 {
+	font-size: 2rem;
+	display: inline;
+	margin-right: 6px;
+}
+
+article video:focus {
+	outline: none;
+}
+
+header {
+	padding: 8px 0 8px 0;
+  width: 768px;
+  max-width: 95vw;
+}
+
+section {
+  max-width: 768px;
+}
+
+ol {
+  letter-spacing: 0.1rem;
+  padding: 0;
+  font-size: 0.5rem;
+  list-style-type: none;
+}
+
+ol > ol {
+  padding-left: 0.5rem;
+  list-style-type: circle;
+}
+
+video {
+	max-width: 95vw;
+}
+
+footer {
+  padding: 1rem;
+}

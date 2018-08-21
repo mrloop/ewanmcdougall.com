@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# extract frame
+ffmpeg -ss $2 \
+  -i "$1" -vframes 1 \
+  -s 768x576 \
+  -vf yadif \
+  -vcodec png -an -y $3.png
+
+# optimize in place
+pngquant --ext .png --force $3.png

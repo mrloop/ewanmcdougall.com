@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# http://wiki.webmproject.org/ffmpeg/vp9-encoding-guide
+
+ffmpeg \
+  -y -i $1 -vf yadif -pass 1 \
+  -s 768x576 \
+  -c:v libvpx-vp9 -b:v 2000K \
+  -c:a libopus -b:a 64K \
+  -threads 2 -speed 1 \
+  -tile-columns 6 -frame-parallel 1 \
+  -auto-alt-ref 1 -lag-in-frames 25 \
+  -f webm /dev/null
+
+ffmpeg \
+  -y -i $1 -vf yadif -pass 2 \
+  -s 768x576 \
+  -c:v libvpx-vp9 -b:v 2000K \
+  -c:a libopus -b:a 64K \
+  -threads 2 -speed 1 \
+  -tile-columns 6 -frame-parallel 1 \
+  -auto-alt-ref 1 -lag-in-frames 25 \
+  $2.webm
+

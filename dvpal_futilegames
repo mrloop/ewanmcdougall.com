@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+# https://trac.ffmpeg.org/wiki/Encode/H.264
+
+# `-s 768x576` square pixels
+# `-vf yadif` deinterlace
+
+dir=../old_home_folder/TheGame_Other/TheGameGeneral/theGame_video/output
+video=$dir/theGame-theGame-MPEG-2\ 6.2Mbps\ 2-pass\ 4:3.m2v
+audio=$dir/theGame-theGame-AIFF\ 48:16.aiff
+
+ffmpeg \
+  -i "$video" -i "$audio" -vf yadif \
+  -s 768x576 \
+  -c:v libx264 -c:a aac \
+  -pix_fmt yuv420p -movflags +faststart \
+  -preset slower -strict -2 \
+  $1.mp4
+
+ffmpeg \
+  -y -i "$video" -i "$audio" \
+  -vf yadif -pass 1 \
+  -s 768x576 \
+  -c:v libvpx-vp9 -b:v 1000K \
+  -c:a libopus -b:a 64K \
+  -threads 2 -speed 1 \
+  -tile-columns 6 -frame-parallel 1 \
+  -auto-alt-ref 1 -lag-in-frames 25 \
+  -f webm /dev/null
+
+ffmpeg \
+  -y -i "$video" -i "$audio" \
+  -vf yadif -pass 2 \
+  -s 768x576 \
+  -c:v libvpx-vp9 -b:v 1000K \
+  -c:a libopus -b:a 64K \
+  -threads 2 -speed 1 \
+  -tile-columns 6 -frame-parallel 1 \
+  -auto-alt-ref 1 -lag-in-frames 25 \
+  $1.webm
+

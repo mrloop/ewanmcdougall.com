@@ -1,0 +1,22 @@
+#!/bin/bash
+
+ffmpeg \
+  -y -i $1 -vf yadif -pass 1 \
+  -s 768x576 \
+  -ss 00:00:06.500 \
+  -c:v libx264 -b:v 2000K \
+  -c:a aac -b:a 64K \
+  -pix_fmt yuv420p -movflags +faststart \
+  -preset slower -strict -2 \
+  -f mp4 /dev/null
+
+ffmpeg \
+  -y -i $1 -vf yadif -pass 2 \
+  -s 768x576 \
+  -ss 00:00:06.500 \
+  -c:v libx264 -b:v 2000K \
+  -c:a aac -b:a 64K \
+  -pix_fmt yuv420p -movflags +faststart \
+  -preset slower -strict -2 \
+  $2.mp4
+
