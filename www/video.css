@@ -1,11 +1,11 @@
 
 @font-face {
 	font-family: 'fanwood';
-	src: url('fonts/fanwood/fanwood_test-webfont.eot');
-	src: url('fonts/fanwood/fanwood_test-webfont.eot?#iefix') format('embedded-opentype'),
-		url('fonts/fanwood/fanwood_test-webfont.woff') format('woff'),
-		url('fonts/fanwood/fanwood_test-webfont.ttf') format('truetype'),
-		url('fonts/fanwood/fanwood_test-webfont.svg#ciclefina') format('svg');
+	src: url('fonts/fanwood/fanwood_text-webfont.eot');
+	src: url('fonts/fanwood/fanwood_text-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/fanwood/fanwood_text-webfont.woff') format('woff'),
+		url('fonts/fanwood/fanwood_text-webfont.ttf') format('truetype'),
+		url('fonts/fanwood/fanwood_text-webfont.svg#ciclefina') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
